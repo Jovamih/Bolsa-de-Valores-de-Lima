@@ -11,7 +11,7 @@ public class FactoryDataBase {
             case DataBase.MySQL:
                 break;
             case DataBase.SQLServer:
-                break; //cierre
+                break;
             default:
                 //no tendria porque suceder pero por default se deja vacio pa futuras implementaciones
                 break;
