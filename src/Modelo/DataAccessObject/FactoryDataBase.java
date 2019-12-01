@@ -13,7 +13,7 @@ public class FactoryDataBase {
             case DataBase.SQLServer:
                 break;
             default:
-                //no tendria porque suceder pero por default se deja vacio pa futuras implementaciones
+                //no tendria porque suceder pero por default se deja vacio para futuras implementaciones
                 break;
         }
         return data;
