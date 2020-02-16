@@ -4,7 +4,13 @@ import javax.swing.ImageIcon;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Graphics;
-
+/**
+ * <h1> Panel {@code JPanelPRO}</h1>
+ * Extiende la clase {@link javax.swing.JPanel}
+ * <p>
+ * Esta clase tiene como objetivo redefinir los metodos escenciales de JPanel
+ * para poder mostrar una imagen de fondo personalizada
+ */
 public class JPanelPRO extends JPanel{
     private String url=null;
     public JPanelPRO(String url){

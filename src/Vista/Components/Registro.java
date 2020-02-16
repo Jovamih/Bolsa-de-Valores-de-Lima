@@ -212,7 +212,7 @@ public class Registro extends JPanelPRO implements MouseMotionListener{
         this.add(vertical);
 
     }
-    public void setController(ControladorPrincipal controller) {
+    public void setController(ActionListener controller) {
         boton_registrar.addActionListener(controller);
     }
 

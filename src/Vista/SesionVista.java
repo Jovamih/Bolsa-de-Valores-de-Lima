@@ -10,7 +10,15 @@ import javax.swing.ImageIcon;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import javax.swing.JOptionPane;
-
+import java.awt.event.*;
+/**
+ * <h1> Clase {@code SesionVista}</h1>
+ * Gestiona las vistas de Inicio de sesion y el registro de nuevos Usuarios
+ * <p>
+ * Hereda de la clase {@link javax.swing.JFrame}
+ * Implementa la Interfaz {@link InterfazVista}
+ * Administra los Paneles {@link Login} y {@link Registro}
+ */
 public class SesionVista extends JFrame implements InterfazVista{
     private Login iniciarSesion;
     private Registro registrarUsuario;
@@ -59,13 +67,21 @@ public class SesionVista extends JFrame implements InterfazVista{
    public Registro getPRegistro(){
        return registrarUsuario;
    }
+   /**
+    * Muestra en inicia la vista
+    */
     @Override
     public void run() {
        this.setLocationRelativeTo(null);
        this.setVisible(true);
     }
+    /**
+     * Gestiona el controlador que escuchara los eventos de los Paneles que posee
+     * @param controller: Controlador que implementa la Interfaz {@link java.awt.event.ActionListener}
+     * @inheritDoc
+     */
     @Override
-    public void setController(ControladorPrincipal controller) {
+    public void setController(ActionListener controller) {
         registrarUsuario.setController(controller);
         iniciarSesion.setController(controller);
     }

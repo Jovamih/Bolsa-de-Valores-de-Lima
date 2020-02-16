@@ -532,7 +532,7 @@ public class SoftwareVista extends JFrame  implements InterfazVista, ActionListe
         limpiarDatos();
     }
     @Override
-    public void setController(ControladorPrincipal controller) {
+    public void setController(ActionListener controller) {
        botonInvertir.addActionListener(controller);
        cerrar_sesion.addActionListener(controller);
        primerInicio.setController(controller);

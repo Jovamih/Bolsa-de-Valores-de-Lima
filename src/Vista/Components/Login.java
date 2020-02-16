@@ -23,6 +23,15 @@ import java.awt.event.MouseMotionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import java.awt.event.*;
+/**
+ * <h1> Clase {@code Login}</h1>
+ * Encargada de mostrar datos para el correspondiente inicio de sesion
+ * <p>
+ * Esta clase es un objeto {@code JPanel} hereda de la clase {@link JPanelPRO}
+ * @see JPanelPRO
+ * @inheritDoc 
+ */
 public class Login extends JPanelPRO{
     private JLabel SALIR;
     private  JLabel titulo;
@@ -145,7 +154,7 @@ public class Login extends JPanelPRO{
    public void setPassword(String password){
        this.text_password.setText(password);
    }
-   public void setController(ControladorPrincipal controller) {
+   public void setController(ActionListener controller) {
         iniciar.addActionListener(controller);
     }
     private void addEventsIndependientes(){
@@ -200,7 +209,10 @@ public class Login extends JPanelPRO{
             }
         });
         
-    }
+    } 
+    /**
+     * Limpia los datos del Login correspondiente al usuario y constraseña
+     */
     public void limpiar_datos(){
         text_usuario.setText("");
         text_password.setText("");

@@ -98,7 +98,7 @@ public class DialogoInicio extends JDialog {
     public void limpiar(){
         infoCapital.setText("");
     }
-    public void setController(ControladorPrincipal c){
+    public void setController(ActionListener c){
         iniciar.addActionListener(c);
     }
     public void run(){

@@ -7,6 +7,9 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+/**
+ * Redefine de forma elegante la clase {@link javax.swing.JDialog} que sera usada por {@link DialogoInicio}
+ */
 public class Dialogo extends JDialog implements ActionListener{
     private JFrame frame;
     private JLabel titulo;
