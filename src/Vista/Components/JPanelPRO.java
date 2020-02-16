@@ -5,7 +5,7 @@ import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Graphics;
 /**
- * <h1> Panel {@code JPanelPRO}</h1>
+ * Panel {@code JPanelPRO}
  * Extiende la clase {@link javax.swing.JPanel}
  * <p>
  * Esta clase tiene como objetivo redefinir los metodos escenciales de JPanel

@@ -25,12 +25,12 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import java.awt.event.*;
 /**
- * <h1> Clase {@code Login}</h1>
+ * Clase {@code Login}
  * Encargada de mostrar datos para el correspondiente inicio de sesion
  * <p>
  * Esta clase es un objeto {@code JPanel} hereda de la clase {@link JPanelPRO}
  * @see JPanelPRO
- * @inheritDoc 
+ *  
  */
 public class Login extends JPanelPRO{
     private JLabel SALIR;

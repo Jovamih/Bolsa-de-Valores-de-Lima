@@ -3,7 +3,7 @@ package Controlador;
 import Modelo.*;
 import Vista.*;
 /**
- * <h1> Bolsa de Valores de Lima </h1>
+ *  Bolsa de Valores de Lima 
  * <p>
  * Programa para simular la bolsa de valores de Lima
  * @author Johan Valerio Mitma
@@ -12,19 +12,19 @@ import Vista.*;
  */
 public class Run { 
     /**
-     *<h1> Funcion principal {@code main(String[] args)}</h1>
-     * 
+     * Funcion principal {@code main(String[] args)}
+     * @param args: Argumentos de terminal
      */
   public static void main(String[] args){
        modoUsuario();
       // modoAdministrador();
     }
   /**
-   *<h1>Funcion {@code modoUsuario()} </h1>
+   *Funcion {@code modoUsuario()} 
    * Esta funcion  contiene la logica principal
    * <p>
    * La funcion no acepta ni devuelve un valor, es esta se pueden apreciar los patrones de diseño
-   * <h1> MVC (Modelo vista controlador) </h1>
+   *  MVC (Modelo vista controlador) 
    */
     public static void modoUsuario(){
                 try{

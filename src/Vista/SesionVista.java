@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JOptionPane;
 import java.awt.event.*;
 /**
- * <h1> Clase {@code SesionVista}</h1>
+ * Clase {@code SesionVista}
  * Gestiona las vistas de Inicio de sesion y el registro de nuevos Usuarios
  * <p>
  * Hereda de la clase {@link javax.swing.JFrame}
@@ -78,7 +78,7 @@ public class SesionVista extends JFrame implements InterfazVista{
     /**
      * Gestiona el controlador que escuchara los eventos de los Paneles que posee
      * @param controller: Controlador que implementa la Interfaz {@link java.awt.event.ActionListener}
-     * @inheritDoc
+     * 
      */
     @Override
     public void setController(ActionListener controller) {
