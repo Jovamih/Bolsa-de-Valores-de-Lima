@@ -2,6 +2,7 @@ package Controlador;
 
 import Modelo.*;
 import Vista.*;
+import java.io.InvalidClassException;
 /**
  *  Bolsa de Valores de Lima 
  * <p>
@@ -35,9 +36,11 @@ public class Run {
           sesion.setController(controller);
           software.setController(controller);
            sesion.run();
-      }catch(Exception e){
-          System.out.println("Error en :"+e);
+      }catch(InvalidClassException e){
+                    System.out.println("Ha cambiado de version de las clases\n"+e.getMessage());
          // e.printStackTrace();
+      }catch(Exception e){
+                    System.out.println(e.getMessage());
       }
     }
    

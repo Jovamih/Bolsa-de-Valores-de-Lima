@@ -20,4 +20,13 @@ public class Credenciales implements Serializable {
     public String getContraseña(){
         return this.contraseña;
     }
+    @Override
+    @SuppressWarnings("EqualsWhichDoesntCheckParameterClass")
+    public boolean equals(Object cred){
+        if(cred==null) return false;
+        Credenciales cred0=(Credenciales)cred;
+        if(cred0.getCorreo().equals(getCorreo()) && cred0.getContraseña().equals(getContraseña()))
+        return true;
+        else return false;
+    }
 }

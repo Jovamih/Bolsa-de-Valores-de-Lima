@@ -7,6 +7,7 @@ import Modelo.Inversionista;
 import Modelo.SAB;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 //la base de datos offline tendra una sola instancia y cargara todos los datos en sus arrayList
@@ -23,7 +24,7 @@ public final class OfflineDataBase implements DataBase {
     @Override
     public void addInversionista(Inversionista inversionista){
          ArrayList<Inversionista> lista= (ArrayList<Inversionista>)leerDatos(databaseInv);
-         if(lista==null || lista.isEmpty()) lista= new ArrayList<>();
+         if(lista==null) lista= new ArrayList<>();
          lista.add(inversionista);
          guardarDatos(databaseInv,lista);
     }
@@ -31,61 +32,51 @@ public final class OfflineDataBase implements DataBase {
     @Override
     public Inversionista getInversionista(Credenciales cuenta) {
         ArrayList<Inversionista> lista = (ArrayList<Inversionista>)leerDatos(databaseInv);
-        if(lista==null || lista.isEmpty()) return null;
+        if(lista==null) return null;
         else{
-        for(int i=0; i<lista.size();i++){
-            Credenciales cred= lista.get(i).getCredenciales();
-            if(cred.getCorreo().equals(cuenta.getCorreo()) && cred.getContraseña().equals(cuenta.getContraseña())){
-                return lista.get(i);
-                }
-            }
+           Optional<Inversionista> inver=lista
+                                        .stream()
+                                        .filter((Inversionista l)->l.getCredenciales().equals(cuenta))
+                                        .findFirst();
+            return inver.isPresent()?inver.get():null;
         }
-        return null;
     }
 
     @Override
     public ArrayList<SAB> getListaSAB() {
         ArrayList<SAB> lista= (ArrayList<SAB>)leerDatos(databaseSAB);
-        if(lista==null || lista.isEmpty()) lista= new ArrayList();
+        if(lista==null) lista= new ArrayList();
         return lista;
     }
 
     @Override
     public ArrayList<Empresa> getListaEmpresa() {
         ArrayList<Empresa> lista= (ArrayList<Empresa>)leerDatos(databaseEmp);
-        if(lista==null || lista.isEmpty()) lista= new ArrayList<>();
+        if(lista==null) lista= new ArrayList<>();
         return lista;
     }
 
     @Override
     public SAB getSAB(String ID) {
         ArrayList<SAB> lista= getListaSAB();
-          for(int i=0; i<lista.size();i++){
-              if(lista.get(i).getNombre().equals(ID)){
-                  return lista.get(i);
-              }
-          }
-          return null;
+        Optional<SAB> sab= lista.stream().filter(s->s.getNombre().equals(ID)).findFirst();
+        return sab.isPresent()?sab.get():null;
     }
 
     @Override
     public Empresa getEmpresa(String ID) {
         ArrayList<Empresa> lista= getListaEmpresa();
-        for(int i=0; i<lista.size();i++){
-            if(lista.get(i).getNombre().equals(ID)){
-                return lista.get(i);
-            }
-        }
-        return null;
+        Optional<Empresa> optEmpresa= lista.stream().filter(e->e.getNombre().equals(ID)).findFirst();
+        return optEmpresa.isPresent()?optEmpresa.get():null;
     }
    @Override
    public void updateEmpresa(Empresa emp){
        int index=0;
        ArrayList<Empresa> lista= getListaEmpresa();
-       if((index= lista.indexOf(emp))!=-1 || lista!=null){
+       if((index= lista.indexOf(emp))!=-1){
            lista.set(index, emp);
+           guardarDatos(databaseEmp,lista);
        }
-       guardarDatos(databaseEmp,lista);
    }
     @Override
     public void updateInversionista(Inversionista inversionista) {
@@ -94,8 +85,8 @@ public final class OfflineDataBase implements DataBase {
         if(lista!=null){
             if((index=lista.indexOf(inversionista))!=-1){
                 lista.set(index, inversionista);
+                guardarDatos(databaseInv, lista);
             }
-        guardarDatos(databaseInv, lista);
         }
     }
 
