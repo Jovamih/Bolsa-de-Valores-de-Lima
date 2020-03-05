@@ -144,7 +144,7 @@ public class ControladorPrincipal implements ActionListener {
                }
         }
         software.limpiarDatos();
-        updateInformacion();
+        updateView();
     }
     private void cargarDatos(){
         //seccion de negocios
@@ -160,9 +160,9 @@ public class ControladorPrincipal implements ActionListener {
             software.setCapital(inv.getCapital());
             software.setFoto(inv.getImagen());
    
-            updateInformacion();
+            updateView();
     }
-    private void updateInformacion(){
+    private void updateView(){
         software.setCapital(modelo.getInversionista().getCapital());
         software.setUtilidad(modelo.getInversionista().getCapital());
         software.setTotalOperaciones(modelo.getInversionista().getTotalOperaciones());

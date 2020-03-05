@@ -31,6 +31,12 @@ public class ModeloBolsaPrincipal {
         }
         return false;
     }
+    /**
+     * La funcion {@code registrarCliente}
+     * retorna {@code TRUE} si el cliente/inversionista ya esta registrado,
+     * de lo contrario {@code FALSE}
+     * 
+     */
     public boolean registrarCliente(Inversionista cliente){
         Credenciales cuenta= cliente.getCredenciales(); //extraemos los credenciales del Inversionista registrado en la APP
         if(baseDatos.getInversionista(cuenta)!=null){
